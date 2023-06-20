@@ -2,6 +2,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Assertions;
 
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class StringCalculatorTest {
@@ -12,5 +13,12 @@ public class StringCalculatorTest {
         stringCalculator = new StringCalculator();
         assertThrows(Exception.class, ()->{stringCalculator.add("-1,1");});
 
+    }
+
+    @Test
+    public void addIgnoreNumbersGreaterThanThousand() throws Exception{
+        stringCalculator = new StringCalculator();
+        int count = stringCalculator.add("10, 10001");
+        assertEquals(10, count);
     }
 }

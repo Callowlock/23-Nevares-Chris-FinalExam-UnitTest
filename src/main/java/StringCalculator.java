@@ -9,7 +9,10 @@ public class StringCalculator {
                 if (!number.trim().isEmpty()) {
                     int temp = Integer.parseInt(number.trim());
                     if(temp < 0) {
-                        throw new Exception();
+                        throw new Exception("Negatives not allowed.");
+                    }
+                    if(temp >= 1000) {
+                        temp = 0;
                     }
                     returnValue+=temp; // If it is not a number, parseInt will throw an exception
                 }
